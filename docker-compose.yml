@@ -1,0 +1,23 @@
+version: "3.3"
+services:
+  redis_app:
+     build: ./redis
+     command: nodemon -L
+     volumes:
+       - ./redis:/app
+     networks:
+       - redis
+     ports:
+       - 3000:3000
+     environment:
+       NODE_ENV: development
+     depends_on:
+       - redis
+     env_file:
+       - .env
+  redis:
+    image: redis
+    networks:
+      - redis
+networks:
+  redis:
