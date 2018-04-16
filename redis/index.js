@@ -1,6 +1,6 @@
 const express = require('express');
-const app = express();
 const redis = require("redis");
+const app = express();
 const client = redis.createClient({
     host: 'redis'
 });
@@ -33,4 +33,4 @@ app.get('/set_get', (req, res) => {
     }
 });
 
-app.listen(3000, () => console.log('Listening on port 3000'));
+app.listen(80, () => console.log('Listening on port 3000'));
